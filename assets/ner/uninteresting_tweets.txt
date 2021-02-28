@@ -1,0 +1,144 @@
+Fucking useful feature of @gmail 😁  https://t.co/7oIwmSdhPw
+Join FuzzCon Europe 2020 - Live Stream !   https://t.co/PO7ry8URXA  @CI_GmbH
+Linux Kernel Runtime Guard    https://t.co/eCwBCtsTiZ
+UNCOVERING MEMORY DEFECTS IN CEREAL (CVE-2020-11104 & CVE-2020-11105)   https://t.co/lqc75hnx2U  /cc @ForAllSecure
+Discuss about #fuzzing in #discord   Advanced fuzzing with AFL++, aflsmart, libfuzzer, honggfuzz, QSYM, Savior, Eclipser, and many more ... !   https://t.co/5BISEIXeTm
+"ENCODING_FOR_FUZZING was not provided to this fuzz target."
+To enable libfuzzer, targeting the libexpat lib, use this to make libexpat :  cmake ../expat -DEXPAT_BUILD_FUZZERS=ON -DEXPAT_SHARED_LIBS=OFF ..  #fuzzing #libexpat
+Libssh Memory Leak Bug  Left : Libfuzzer - entropic disabled Right : Libfuzzer - entropic enabled  Libfuzzer entropic disabled = time to discover Mem-Leak = 1mins - 6 sec(s)  Libfuzzer entropic enabled = time to discover Mem-Leak = 46 - sec(s)  Same env - #entropic rapid cov  https://t.co/XPfhGTS36d
+Guys! the list has been updated.  I've added Perfuzz by @cestlemieux and JQF & FuzzFactory by @moarbugs from UC Berkeley!
+I've already updated the Awesome-AFL list with the version 2.0 of Nautilus fuzzer .  Check out here   https://t.co/AjAGuMcAdi
+p.s : Please give suggestions to make this list more comprehensive with more AFL Inspired fuzzers and tutorials .
+Not sure if the fuzzer is fuzzing the target or my nerves! >.<
+Yay! Just got my “toy” back :) happy /me can start fuzzing again ^^  https://t.co/lmHYQ4BsV5
+My March fuzzing class just sold out but if interested add yourself to the waitlist quick, I should be adding a few more seats once I confirm my assistant’s availability. Next class is in May.
+I like taking long strolls through CPU architecture manuals, writing long love letters to system internals until the sun comes up, and like a fuzzer running in the background, I’m maintenance free and deliver exciting gifts and surprises on random occasions.
+Don’t forget to use coupon code “richinseattle” and email me when you sign up to get early access to cloud fuzzing VM and materials!
+Winter holidays are nearly here and WOOT’21 submissions are around the corner. Paper deadline will be Jan 29 with abstracts due a couple days before that. The event will be co-located at IEEE S&P in May. I’m on the PC this year and would love to see your fuzzing and RE papers!
+I like to say most of the work in fuzzing is in harnessing .. to the point you are writing a set of hooks/patches for your target similar to writing a rootkit to manipulate data in transit. It’s hard to do that without reading the code first.
+This week will be my last training of 2020, mail training at fuzzing io to be notified of upcoming classes in 2021!
+10 days away, last call for registration for Advanced Fuzzing and Crash Analysis class for Nov 16-19. Use registration code “richinseattle” when you sign up. 4 full days of live instruction with tons of documentation, hands on labs, teaching assistants & free cloud fuzzing VMs!
+I was not trying to fuzz VirtualBox ... all this drama just cuz I forgot to place some files in /tmp before running my fuzzer. The colorful squares aren't supposed to be there :)  https://t.co/suDRl5OlzH
+Oracle OCI OffSec is hiring again. We need:  - Hardware Security Director - Experienced security researchers for our Attack Team (where I play) writing fuzzing tools, CodeQL queries, tearing apart high value targets - People with some security experience who want to write tools
+Refactor to reduce attack surface, strongly sanitize input, fuzz all the things, mitigate potential attack vectors.
+hah, found the SDK I was looking for in a software that has 1GB installer, includes a few other SDKs worth targeting, includes lic key for my target SDK in plaintext, .lib files for linking, and example demos I can fuzz directly. Also just discovered a new critical attack vector
+Okay Twitter, what's your favorite C++ console TUI library for Windows. Time to add a basic text based UI to the fuzzer. I know about pdcurses as a portable curses library. And I've stumbled across  https://t.co/zQiv6rpoAo help me narrow it down! IMTUI looks nice..
+It only took a couple hours to figure out how to turn TinyInst into a working coverage guided fuzzer. Quick comparison shows speed similar to WinAFL so far. I haven't optimized the coverage engine beyond what I borrowed from litecov.  https://t.co/UJEwGE7QMd
+My next class is Nov 16-19 on GMT+4 timezone. Please use referral code “richinseattle” and you will get a free month of access to my fuzzing cloud VMs!
+Cloud fuzzing lab deployed and streaming studio rebuilt and ready to rock for another week of Advanced Fuzzing and Crash Analysis  https://t.co/rqbQT0BjhR
+Good morning Europe! I’m happy to announce my next Advanced Fuzzing and Crash Analysis training dates will be Sept 21 - 24, starting at 8a CET. Email training@fuzzing.io for more info! Or to inquire about future dates.  Syllabus and class details here:  https://t.co/xu9gn6XXox
+Got some great reviews for my online fuzzing training course I delivered at @HITBSecConf two weeks ago. Almost everyone returned the survey and I got 91% overall so all 4 & 5 ratings! Looking forward to the next one in September on EU/US time zones, details coming in a few days.  https://t.co/uINvmlI5vj
+This is that fuzzing performance kernel patch from SSLab published at CCS’17 I mention in my trainings that add syscalls to replace fork. Worth it if you can run custom kernels in your environment.
+Oops, July 20 is the fuzzing training with HITB. I have a fun, free talk scheduled on June 26 for @toorcamp VirtualToor on "Hacking TCP/IP BBS Infrastructure" and got the days mixed up.
+To clarify - The HITB class will cover Linux userland fuzzing of file parsers and network client/servers (primarily libraries embedded in browsers), a few userland parser exercises for Windows, and some coverage of browser DOM fuzzing. There will be new exercises & triage content
+Pawel is a skilled hacker & also former student of my training where we use domato to fuzz browsers.. he just made $8k by adding a small modification to the domato grammar for <portal> tags. Be like Pawel, fuzz all the things! Take my training in 2020 if you want to learn how!
+Two hours left but results are as expected. Plan is to revamp the existing fuzzing class with all new exercises focused on diff layers of browser attack surface. Mobile/embedded will be a separate class offering. Guess I’ll keep my Windows tooling for bounties/private training :)
+In 2020 where should I focus my new fuzzing material
+Cool, I've never seen the dwarves package, but this output from pahole looks like it could be patched or processed to extract grammars for fuzzing easier than parsing headers and linking types...
+Nice fuzzing harness :)
+Surgery recovery day 1 - friend randomly pings me about upcoming pwn2own, so naturally I've been deep in attack surface analysis for the past 5 hours and have several fuzzing targets to harness :)
+Our headcount is finally active, interviewing and hiring starts now. Currently the positions available are for those willing to work from Seattle, Portland, or Dublin office only. Come work on scalable security testing - fuzzing, static analysis, scanning, instrumentation, etc
+We are hiring at OCI Security!   I have a new team - Security Instrumentation & Analysis that is still focused on research, especially fuzzing tooling development and custom static analysis queries with Semmle, Joern, etc.   We also have positions for PenTest/SecArch.   DMs open.
+The commerical SAST/DAST offerings lack much vision or tech development. The leading DAST (fuzzing) product is still Defensics which is built on tech from 2004. You still pay ~$5k per protocol for a couple thousand (at best) pre-generated packets derived from BNF grammars in RFC  https://t.co/eATcwvrPXz
+There are some peculiarities with the rewrite. I initially targeted file which did run, but caused a segv in the finalizer. diff runs as well but also exhibits a handled stack overflow (recursion) before terminating. It doesn't impact the code I want to fuzz but expect oddities
+cc: @ifsecure - I ran out of space to tag you above. Thanks for the awesome WinAFL software! I noticed in class people struggle with the lengthy command line so hopefully this will help with that hurdle and get others introduced to WinAFL and start fuzzing!
+Many people think of me as a fuzzing expert since I made advanced fuzzing tech my focus for building a team at Cisco. The rabbit hole goes much deeper. My aging reference library is on  https://t.co/pFa58Sigol I hope to add a paper review section to help you go through the catalog
+New training content additions in 2019: Mutiny+DeceptProxy Joern+Covnavi  5 progressive Winafl exercises rr-debugger Windbg TTD Domato-cov Ndisfuzz Qsym Angora Aflfast Aflsmart
+Currently zeroday remote preauth code execution on WiFi NICs in Microsoft Surface, Samsung Chromebook and phones, PS4, XBox SteamLink, etc. Talk was in Russian but the slides are informative. Solid RE w/ custom hooking tools to dump memory/calls and afl-unicorn for fuzzing bugs
+This smaller class means you get all your questions answered about Windows fuzzing, writing hooking and tracing tools with Pin and DynamoRIO, fuzz browsers with my custom fork of domato, learn how to attack the Windows kernel, and also how to use moflow to triage Windows crashes
+Submit papers for Toorcon in San Diego next month! Come learn about advanced fuzzing and triage in my training!  https://t.co/wp5Er9plb2
+If there are smaller parties in Vegas next week that aren’t in loud clubs and you want to meet up, lmk. I’m giving a talk on taint and symbolic execution driven fuzzing and triage in the Illuminati suite Saturday. Open to doing that other places or 1:1
+True story, only blogs I’ve seen using WinAFL are written by students of mine. We now spend a whole day writing wrappers and reversing targets for deep hooks below exported functions for fuzzing to get good performance.  https://t.co/Ka46HBVGkz
+This is good work from my friend and previous student @symeonp come learn how to write fuzzers like this and learn to place your hooks even deeper in my training class  https://t.co/mU5cut9vxB
+Phenomenal Infineon baseband reversing talk by Guy. Reversed heap, page tables, AT command set, wrote a custom fuzzer and sniffer, sounds like a lot of crashes. Typical nonchalant delivery style by a very talented researcher #syscan360 @SyScan360  https://t.co/rtaiCNOS7e
+Aleks Nikolic from our @TalosSecurity VulnDev team is explaining how to analyze your fuzzing coverage like a pro. CovNavi: Fuzzing Driven Code Auditing @SyScan360 #syscan360  https://t.co/Firkpdoi1I
+Two new safari crashes found live in my training class during the browser fuzzing segment! Looks like @h0wlu has that magic touch :)
+4-day version: a day of static analysis plugins, a day of binary translation, and two days of fuzzing and triage. @OPCDE Dubai, April 2-5  https://t.co/hawDQb2lB4
+Time is running out! Training @HushCon in Seattle Dec 7-8. 2-day version still covers clang-analyzer, DBI tracing, fuzzing, advanced triage  https://t.co/Vy3KifpqtV
+Check out my Vulnerability Discovery and Triage Automation training (2-days): fuzzing, reverse debugging, taint analysis, symbolic execution  https://t.co/OytGH4ss4i
+My gfx fuzzing is making my screen fuzzy.  https://t.co/GUfrbylqy5
+When viewing a presentation that is demo'ing new fuzzing tech, what is most important to you the audience
+Pretty happy how this talk turned out other than a failed IDA plugin demo .. first live demo fail in like 3 years, fuzzer demo worked tho!  https://t.co/z2TkkWKZfH
+Things I'm excited about lately: kernel fuzzing, binary ninja, rust programming language
+Lineup looks great! @aall86 and I will demo fast windows user/kernel trace, IDA trace visualizer, and persistent fuzzing!  https://t.co/oum51gzUIH
+Coming soon to a kernel debugger/fuzzer near you!  https://t.co/Di7iTGENly
+In case you missed it end of last week, major thanks to my co-authors @aall86 and @danielmgmi #fuzzing #intelpt   https://t.co/fz30Z1kcu6
+Good talks today see you all tomorrow at 10:30 for Go Speed Tracer! Learn about directed fuzzing and tracing engines  https://t.co/gG8QHTBcT4
+If you see me in Vegas w/ my laptop, feel free to ask for demos of our high perf fuzzing tools: afl-dyninst, pin-forksrv, windows fast-fork
+I've been manually deleting the print device from my fuzzing VMs, guess I shoulda taken a closer look. Nice breakout  https://t.co/aKftn0xUXG
+Didn't fuzz this eh? #BugReportIn4Words
+Who's in Kuala Lumpur this week for #HITB2014KUL? My talk on concolic fuzzing and semantic patch analysis is tomorrow @ 13:30
+I'm hiring - job desc: 1) bindiff major patches and write repros 2) find a few 0day/qtr or triage fuzzer/SCA output 3) tool dev to help 1&2
+Question to the people out there with fuzz farms - what do you do with all the non-exploitable readav bugs (specifically in closed src)
+The preliminary code has been pushed, now it directly solve inside the dfsan_rt, still missing new input generation and fuzzer integration. Coding is fun!!
+#BadMalwarePickupLines hey girl, do you seem a little fuzzy? because you found all of my vulnerabilities.
+“@mrsues: There is something strangely erotic about a woman bundled in a winter coat and fuzzy boots.”< this is what makes you Canadian
+hard time finding a vuln in a 2002 web app.. no source code.. don't fuzz just find a russian warez site and grab that code #motherrussia
+Cannot tell what are the speeds at Google OSS Fuzz. Here try to ask it the maitainer:  https://t.co/dQAvpiWzas Does it make sense to follow this approach. Or Google OSS Fuzz with state of the art fuzzers does it already to best performance you cannot compete with.
+Released to go with my #POC2019 talk, a project which contains a C# client for almost every ALPC RPC server on Windows 7 through Windows 10 1909. Could be useful for EoP research, fuzzing etc.  https://t.co/exDuMvsR5e
+I do love looking up #Java vulns from the CPU. Clearly someone's been fuzzing image formats. Also this looks fun  https://t.co/ZTuutTZgqi :-)
+Pretty sure they'll be some fun race conditions to find here. Start your fuzzers :-)  https://t.co/0zMkvoQCYc
+The vulnerabilities were discovered after Forescout researchers, inspired by JSOF's Ripple20 vulnerabilities, decided to scan seven TCP/IP stacks for similar bugs as the ones discovered in the Treck stack last year  Here's what they analyzed, with both fuzzers and manual reviews:  https://t.co/zuDJeLcCu6
+Grant program encourages the use of Fuzzilli, a fuzzer developed by Google:  https://t.co/tApjLU50DD
+Bugs found via this grant are still the researcher's "property"  They can report it and get a bounty and CVE in their name  Google just wants people fuzzing browser JS engines more, as fuzzing is rarely used due to the heavy monetary costs of renting computing power
+I'll save you some clicks:  HA link to the sample:  https://t.co/zTf3IRFwRk  VT link:  https://t.co/UhReaPeIFJ  Saudi CNA report:  https://t.co/F6CtXtAgPq  Point of entry was a VPN server -- unclear if Pulse Secure or Fortinet, though. Currently fuzzy on this front.  https://t.co/8OMqjKAfgt
+The fuzzer is named Echidna... not the smart contracts...  Oy... my English today has been terrible. I hate this day!!! It can't end any sooner.
+IntruderPayloads - a collection of Burpsuite Intruder payloads, fuzz lists, and file uploads  https://t.co/Z117MojAXR  https://t.co/cZ5w2rpQjc
+Fuzzysearch 1.0.3: A fuzzy-searching algorithm implemented in raw JavaScript, allowing user searches to employ...  http://t.co/70j6gO0WEj
+fuzzylime (cms) 3.03b  http://ow.ly/1cfymo
+With virtualization, not only do you have out of box debugging capabilities, but also an easy path to building scalable fuzzers. Fuzzing on-device is limited by resources, and Apple's iOS simulator doesn't match a real device (it also runs x86 instead of ARM).
+I spilled water in my keyboard and now it's trying to fuzz Chrome :(
+Past 2 months I've been building on top of the custom RDP client I wrote to exploit BlueKeep. Finally got to the point where I can build a protocol-aware fuzzer, then I remembered it's python so it'd be slow as shit :(
+Also useful for web-app pentesting as you can gain a detailed understanding of the target system, rather than just fuzzing it with various exploit techniques.
+Reading some materials mentioned  https://t.co/WnQmr6v6hE which reminds me there's a small porn video in the MPEG1 directory. Maybe add it to your corpus is not a good idea if your fuzzing target will play the input file on the screen.😄
+Seems afl-fuzzer does not support /dev/null anymore. Anyway, trivial outputs should be ignored.
+Contains people who work on vulnerability research, develop fuzzing tools, and do exploit dev, with focus on binary level research
+Buy arm mac to fuzz android
+So... I have AFL++ and honggfuzz for Windows user/kernel mode with coverage feedback now  ... what should I fuzz next 🤔
+In 2016, @lcamtuf (original developer of the AFL fuzzing tool) wrote a detailed article on doomsday prep. Section 4.7.8 discusses respiratory diseases and what to do when N95 masks and hand sanitizers sell out during a pandemic. Always ahead of the game!
+An innovative approach to save more waypoints during fuzzing beyond coverage-increasing inputs, but without using extra instrumentation or bloating up the seed pool.
+An *excellent* talk on automated testing of filesystem crash consistency.   If you are into fuzzing/testing but don't know anything about filesystems: this talk explains the problem in depth, shows why it's *very* hard, and presents an automated system that finds real bugs!
+In our undergrad compilers class, we've always offered extra credit for reporting bugs in the ChocoPy reference compiler (since our autograder uses it as an oracle). This year, we've had some students start fuzzing campaigns. Bounties await.
+In an ironic fail, I reported an incorrect affected version, and now have to get the CVE record amended. 🤦  (Cue: who fuzzes the fuzzers?)
+A pretty cool taxonomy of fuzzing tools + discussion of various design choices in fuzzing.
+A Python syntax puzzle for y'all. Find a string in the language described by the following grammar, which is not a valid Python expression (i.e. it leads to a syntax error). Hint: the smallest solution requires very few expansions. #fuzzpuzzles  https://t.co/hd61uuOY74
+A simple JavaScript Fuzz Puzzle. Find primitive values a, b, c, such that f(a, b, c) throws an error. Hint: there are multiple solutions. #fuzzpuzzles  https://t.co/j78GFnf7P4
+PSA for fuzzing researchers. Please stop evaluating #paths saved by fuzzing tools. It is not a measure of effectiveness.
+Can we teach fuzzing tools to avoid getting bored (of generating uninteresting test inputs)?
+happy to announce that I will be conducting a workshop on fuzzing and bug hunting at @BSidesDublin 🤘
+Weekend project, every hour this bot checks for fuzzer stats and notifies me of status :))  https://t.co/QsxiTuQyCl
+Just noticed that I haven't fuzzed anything kn windows since last few months 😂😂
+just converted my Damn Vulnerable C Program in to a dll. go and fuzz it using winafl by writing harness for it:  https://t.co/ii4CodeysJ  Hint: its very simple, will do a video may be in next few weeks once i am back from vacation :)  #winafl #fuzzing
+If you watched video, you might have noticed that ctrl+c didn't stop libfuzzer when I used -fork=1. it seems to be a strange issue not sure why:  https://t.co/r1UFLwjeRX
+[Fuzzing with libfuzzer] How to fuzz a simple C program using LibFuzzer  https://t.co/7sycHsQsEv via @YouTube
+please subscribe, share and like. my youtube channel on fuzzing:  https://t.co/Pp0FNTplSI
+Just finished my workshop "finding security vulnerabilities through fuzzing"  at @bsidesdelhi. Amazing experience. #bsidesdelhi2020 thank you all!
+great work by @linhlhq go and fuzz on mac now!
+Will be conducting a training at bsides delhi on fuzzing and bughunting. looks like its already full :)
+#afl by default is hash tag for some game! People are using it for afl fuzzer :-p
+What your life would be if you just need to fuzz all day long and not as a side project :)
+What should I cover next in fuzzing videos?
+Here is the video showing how to fuzz this program using AFL. Video also shows what kid of crashes we get.   https://t.co/79SGYUBP2V
+fuzz harness i used to fuzz bitmap ico files with winafl ->  https://t.co/dEP4cksY2Z  will add more harness in future and write blogpost if time permits.  if you know any public harness for winafl, feel free to add to this github repo, send pull request.
+Ossfuzz just killed my another bug..
+me: i will fuzz xyz software/lib on my 8 core desktop. google: already fuzzed. "we grew to more complex and effective mutation methods, 2000 cores and an input corpus supported by sample files improving the overall code coverage." 🤣🤣😇😇
+This works well even if you write your own dumb fuzzer,
+Looking at various fuzzer code and implementation, you can see most of the mutation strategies are same(thread for AFL based on my understanding )
+This article was my inspiration to start with fuzzing at first place. I thought if I get a single cve after running my fuzzer for 1 month, I would be very happy! I now have 20+... in various products.
+This is happened with me many times now. Every time I get frustrated and decided to close my fuzzer(s) a new crash pops up and I start again! Fuzzing is not easy!
+What is the best way to group together crash from fuzzer output?
+completed log pending task. modified and old open source fuzzer to suit my needs! will release in next few days!
+crawl and find samples for fuzzing. works for both binary and ascii file types.  https://t.co/n4y6vSKY4h
+The hardest part in fuzzing with #winafl is writing a harness. Rest win AFL will take care 😎
+in case you want to download samples for fuzzing.  https://t.co/n4y6vStncJ
+What about dom fuzzers?
+metasploit fuzzer vs sulley fuzzer -> http://t.co/HUvSThZc i thnk sulley does a good job. wht say?
+Released couple of dhcp fuzzer on secgeeks.com pls check it out. Thy r written for sulley_l2 framwork.
+RIP2 resopnse fuzzer for sulley ->  http://t.co/kbp3BPw2
+simillarly wrote RIP response fuzzer. good idea will be to port it to #metasploit .. :)
+RIP request fuzzer for sulley_l2  http://t.co/l47lOWuM
+my small RIP request fuzzer for sulley_l2 ->  http://t.co/gFofAX7B
+Writing a BGP fuzzer.. Sulley Kicks everyone out there..
+wrote my first metasploit module, wifi_prob_req fuzzer :-)
+There is something therapeutic about watching your fuzzer in action :)
+#SteelCon16 tomorrow, I wanna say early night, but I've already got the fuzzer out :/

@@ -1,0 +1,10 @@
+ner:
+  MODEL_NAME: cver
+  MODEL_PATH: assets/ner/model
+
+  TRAIN_ITER_TIMES: 40
+  TRAIN_DROP_RATE: 0.35
+  DATA_SPLIT_RADIO: 0.6
+
+  DATASET: assets/ner/dataset.json
+  PERFORMANCE: assets/ner/performance.json
