@@ -1,12 +1,15 @@
-from collections import OrderedDict
-import numpy as np
 import spacy
+import numpy as np
+from collections import OrderedDict
 from spacy.lang.en.stop_words import STOP_WORDS
+
+from src import utils
+from src import settings
 
 nlp = spacy.load("en_core_web_sm")
 
-# https://towardsdatascience.com/textrank-for-keyword-extraction-by-python-c0bae21bcec0
-class TextRank4Keyword:
+
+class TextRank(object):
     """Extract keywords from text"""
 
     def __init__(self):
@@ -15,19 +18,26 @@ class TextRank4Keyword:
         self.steps = 10  # iteration steps
         self.node_weight = None  # save keywords and its weight
 
-    def set_stopwords(self, stopwords):
+        # Set stop words
+        self.set_stopwords()
+
+    def set_stopwords(self):
         """Set stop words"""
+        stopwords = settings.get("data.STOP")
+        with open(stopwords) as f:
+            stopwords = [line.strip() for line in f.readlines()]
+
         for word in STOP_WORDS.union(set(stopwords)):
             lexeme = nlp.vocab[word]
             lexeme.is_stop = True
 
     def sentence_segment(self, doc, candidate_pos, lower):
-        """Store those words only in cadidate_pos"""
+        """Store those words only in candidate_pos"""
         sentences = []
         for sent in doc.sents:
             selected_words = []
             for token in sent:
-                # Store words only with cadidate POS tag
+                # Store words only with candidate POS tag
                 if token.pos_ in candidate_pos and token.is_stop is False:
                     if lower is True:
                         selected_words.append(token.text.lower())
@@ -95,18 +105,21 @@ class TextRank4Keyword:
 
         return keywords
 
+    def filter_keywords(self, keywords):
+        keywords = dict(filter(lambda x: x[1] >= 1, keywords.items()))
+        keywords = set(keywords.keys())
+        keywords = list(filter(lambda x: 3 < len(x) < 15, keywords))
+        keywords = list(filter(utils.is_ascii_word, keywords))
+        return keywords
+
     def analyze(
         self,
         text,
-        candidate_pos=["NOUN", "PROPN"],
+        candidate_pos=["PROPN"],
         window_size=4,
         lower=False,
-        stopwords=list(),
     ):
         """Main function to analyze text"""
-
-        # Set stop words
-        self.set_stopwords(stopwords)
 
         # Pare text by spaCy
         doc = nlp(text)

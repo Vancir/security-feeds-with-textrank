@@ -10,9 +10,8 @@ def butler():
 
 _butler_commands = (
     "annotator",
-    "recognize",
-    "generate",
-    "preprocess",
+    "setup",
+    "rss",
 )
 
 

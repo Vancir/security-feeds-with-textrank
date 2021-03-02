@@ -2,14 +2,11 @@ import os
 import re
 import sys
 import click
-import random
 from readchar import readkey
 from pathlib import Path
 
-# from rich import print
-
 from src import utils
-from src.ner.analyzer import Brain
+
 
 TERM_RED_COLOR = "\033[1;31m"
 TERM_GREEN_COLOR = "\033[1;32m"
@@ -56,12 +53,10 @@ KEY_DOWN_ARROW = "\x1b[B"
 KEY_ENTER = "\r"
 KEY_SPACE = " "
 
-LABELS = {"v": "VERSION", "t": "TECHNOLOGY", "s": "SOFTWARE"}
+LABELS = {"k": "KEYWORD"}
 
 LABELS_COLOR = {
-    "TECHNOLOGY": red,
-    "SOFTWARE": blue,
-    "VERSION": green,
+    "KEYWORD": red,
     "CURRENT": purple,
 }
 
@@ -99,7 +94,8 @@ def print_colorful_description(desc, word_start, word_end, entities):
     """ print prompt. """
     word = desc[word_start:word_end]
     print(
-        "{} {}{}{}".format(symbol("➜"), white("("), yellow(word), white(") = ")), end=""
+        "{} {}{}{}".format(symbol("️➡️️"), white("("), yellow(word), white(") = ")),
+        end="",
     )
     """ flush to stdout. """
     sys.stdout.flush()
@@ -107,28 +103,24 @@ def print_colorful_description(desc, word_start, word_end, entities):
 
 def print_label():
     print(
-        symbol("➜"),
+        symbol("️➡️"),
         white("(label) ="),
-        "{}-{}, {}-{}, {}-{}".format(
-            LABELS_COLOR["SOFTWARE"]("s"),
-            LABELS_COLOR["SOFTWARE"]("SOFTWARE"),
-            LABELS_COLOR["VERSION"]("v"),
-            LABELS_COLOR["VERSION"]("VERSION"),
-            LABELS_COLOR["TECHNOLOGY"]("t"),
-            LABELS_COLOR["TECHNOLOGY"]("TECHNOLOGY"),
+        "{}-{}".format(
+            LABELS_COLOR["KEYWORD"]("k"),
+            LABELS_COLOR["KEYWORD"]("KEYWORD"),
         ),
     )
 
 
 def print_usage():
     print("\n\nhelp:")
-    print(symbol("🡱"), white("move forward one character."))
-    print(symbol("🡻"), white("move backward one character."))
-    print(symbol("🡸"), white("move to previous word."))
-    print(symbol("🡺"), white("move to next word."))
+    print(symbol("⬆️"), white("move forward one character."))
+    print(symbol("⬇️️"), white("move backward one character."))
+    print(symbol("⬅️"), white("move to previous word."))
+    print(symbol("️➡️️"), white("move to next word."))
     print(symbol("u"), white("unset the current highlighted word."))
     print(symbol("q"), white("quit the annotator."))
-    print(symbol("↵"), white("go to the next paragraph."))
+    print(symbol("🔄"), white("go to the next paragraph."))
 
     _ = readkey()
 
@@ -339,82 +331,14 @@ def flag(corpus):
 
 @annotator.command()
 @click.option(
-    "-c",
-    "--corpus",
-    default="assets/ner/corpus.txt",
-    type=click.Path(exists=True),
-    help="path of raw corpus data for training nlp model.",
-)
-@click.option(
-    "-o",
-    "--output",
-    default="assets/ner/dataset.json",
-    type=click.Path(exists=False),
-    help="path of generated normalized dataset.",
-)
-@click.option(
-    "-n",
-    "--number",
-    default=1000,
-    type=int,
-    help="max annotation count for one task.",
-)
-def go(corpus, number, output):
-    """ Start annotation and generate dataset. """
-    """ Read descriptions and shuffle. """
-
-    with open(corpus) as f:
-        tweets = [line.strip() for line in f.readlines()]
-
-    random.shuffle(tweets)
-    """ Read dataset if output exists. """
-    dataset = []
-    if os.path.exists(output):
-        dataset = utils.load_json(output)
-
-    # FIXME: first run this will failed because no labeled dataset.
-    # brain = Brain()
-    # brain.load()
-
-    try:
-        """ Iterate until get lines of specified number data. """
-        for idx in range(number - len(dataset)):
-            """ Get one line description. """
-            desc = tweets.pop()
-            """ Show and generate dataset word by word. """
-            """ entities: Store (start_index, end_index, word). """
-
-            # FIXME: first run this will failed because no labeled dataset.
-            # predict = brain.eval(desc, show=False)
-            # entities = user_control(desc, entities=predict)
-            entities = user_control(desc)
-
-            if not entities:
-                continue
-            """ Add the entities to the dataset. """
-            dataset.append([desc, {"entities": entities}])
-
-            if str(idx).endswith("0"):
-                utils.dump_json(dataset, output)
-    except KeyboardInterrupt:
-        print("Keyboard Interrupt.")
-    except Exception as e:
-        print(e)
-    finally:
-        """ Dump the dataset to local. """
-        utils.dump_json(dataset, output)
-
-
-@annotator.command()
-@click.option(
     "-d",
     "--dataset",
-    default="assets/ner/dataset.json",
+    default="assets/report.json",
     type=click.Path(exists=True),
-    help="NER model training dataset.",
+    help="dataset(report.json).",
 )
 @click.option("-i", "--index", default=0, type=int, help="Index start to annotation.")
-def fix(dataset, index):
+def start(dataset, index):
     """ Fix existed dataset. """
     """ Read dataset. """
     datas = utils.load_json(dataset)
@@ -438,17 +362,3 @@ def fix(dataset, index):
         print(symbol("➜"), white("(index) ="), white(str(index)))
         """ Dump the dataset to local. """
         utils.dump_json(datas, dataset)
-
-
-@annotator.command(name="update-forever")
-def update_forever(description):
-    """ Update NER model per 10 seconds. """
-    while True:
-        brain = Brain()
-        brain.train()
-        brain.test()
-
-        brain.dump()
-        brain.dump_performance()
-
-        print()
