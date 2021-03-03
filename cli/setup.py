@@ -3,7 +3,7 @@ from pathlib import Path
 from rich.progress import track
 
 from src import utils
-from src import database
+from src import database as db
 from src.textrank import TextRank
 
 
@@ -111,4 +111,4 @@ def keyword(clean_corpus, output):
 @setup.command()
 def database():
     """Setup sqlite3 database."""
-    database.create_table()
+    db.create_table()

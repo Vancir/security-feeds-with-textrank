@@ -1,6 +1,7 @@
 import re
 import click
 from loguru import logger
+from rich.progress import track
 
 import feedparser
 from src import utils
@@ -69,13 +70,15 @@ def today(output):
 
     unread_feeds = []
     following_accounts = settings.get("subscribe")
-    for user in following_accounts:
+    for user in track(following_accounts, description="Querying twitter..."):
         try:
             user_unread_feed = _get_user_feeds(user)
             unread_feeds += user_unread_feed
         except Exception as e:
-            logger.exception(f"failed to get twitter {user} feed from rsshub.")
-            return
+            # logger.exception(f"failed to get twitter {user} feed from rsshub.")
+            logger.info(f"Failed to get {user} tweets.")
+
+    logger.info(f"Get {len(unread_feeds)} unread feeds.")
 
     textrank = TextRank()
     for unread_feed in unread_feeds:
