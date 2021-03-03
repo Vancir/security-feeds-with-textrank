@@ -2,48 +2,19 @@ import os
 import re
 import sys
 import click
+from loguru import logger
+from rich import print
 from readchar import readkey
-from pathlib import Path
 
 from src import utils
 
 
-TERM_RED_COLOR = "\033[1;31m"
-TERM_GREEN_COLOR = "\033[1;32m"
-TERM_YELLOW_COLOR = "\033[1;33m"
-TERM_BLUE_COLOR = "\033[1;34m"
-TERM_PURPLE_COLOR = "\033[1;35m"
-TERM_SYMBOL_COLOR = "\033[1;36m"
-TERM_WHITE_COLOR = "\033[1;37m"
-TERM_RESET_COLOR = "\033[0m"
-
-
 def red(word):
-    return TERM_RED_COLOR + word + TERM_RESET_COLOR
-
-
-def green(word):
-    return TERM_GREEN_COLOR + word + TERM_RESET_COLOR
-
-
-def yellow(word):
-    return TERM_YELLOW_COLOR + word + TERM_RESET_COLOR
-
-
-def blue(word):
-    return TERM_BLUE_COLOR + word + TERM_RESET_COLOR
+    return f"[red]{word}[/red]"
 
 
 def purple(word):
-    return TERM_PURPLE_COLOR + word + TERM_RESET_COLOR
-
-
-def symbol(word):
-    return TERM_SYMBOL_COLOR + word + TERM_RESET_COLOR
-
-
-def white(word):
-    return TERM_WHITE_COLOR + word + TERM_RESET_COLOR
+    return f"[purple]{word}[/purple]"
 
 
 KEY_LEFT_ARROW = "\x1b[D"
@@ -94,7 +65,7 @@ def print_colorful_description(desc, word_start, word_end, entities):
     """ print prompt. """
     word = desc[word_start:word_end]
     print(
-        "{} {}{}{}".format(symbol("️➡️️"), white("("), yellow(word), white(") = ")),
+        f"[white]➡️️[/white] [white]([/white][yellow]{word}[/yellow][white]) = [/white]",
         end="",
     )
     """ flush to stdout. """
@@ -103,8 +74,7 @@ def print_colorful_description(desc, word_start, word_end, entities):
 
 def print_label():
     print(
-        symbol("️➡️"),
-        white("(label) ="),
+        "[white]️➡️ (label) = [/white]",
         "{}-{}".format(
             LABELS_COLOR["KEYWORD"]("k"),
             LABELS_COLOR["KEYWORD"]("KEYWORD"),
@@ -114,13 +84,13 @@ def print_label():
 
 def print_usage():
     print("\n\nhelp:")
-    print(symbol("⬆️"), white("move forward one character."))
-    print(symbol("⬇️️"), white("move backward one character."))
-    print(symbol("⬅️"), white("move to previous word."))
-    print(symbol("️➡️️"), white("move to next word."))
-    print(symbol("u"), white("unset the current highlighted word."))
-    print(symbol("q"), white("quit the annotator."))
-    print(symbol("🔄"), white("go to the next paragraph."))
+    print("[white]⬆️ move forward one character.[/white]")
+    print("[white]⬇️️ move backward one character.[/white]")
+    print("[white]⬅️ move to previous word.[/white]")
+    print("[white]️➡️️ move to next word.[/white]")
+    print("[white]u unset the current highlighted word.[/white]")
+    print("[white]q quit the annotator.[/white]")
+    print("[white]🔄 go to the next paragraph.[/white]")
 
     _ = readkey()
 
@@ -220,7 +190,7 @@ def user_control(text, entities=[]):
             # print usage
             print_usage()
         elif "q" == choice:
-            raise Exception
+            raise KeyboardInterrupt
         elif choice in LABELS.keys():
             """ Add the labeled data into entities. """
             label = LABELS[choice]
@@ -251,6 +221,9 @@ def annotator(dataset):
     dataset_path = dataset
     dataset = utils.load_json(dataset)
 
+    with open("assets/features.txt") as f:
+        keywords = set(word.strip() for word in f.readlines())
+
     try:
         """ Iterate until get lines of specified number data. """
         for data in dataset:
@@ -259,11 +232,16 @@ def annotator(dataset):
             entities = data[1]["entities"]
             """ Show and generate dataset word by word. """
             data[1]["entities"] = user_control(text, entities=entities)
+            for entity in data[1]["entities"]:
+                keywords.add(entity[-1])
     except KeyboardInterrupt:
         print("Keyboard Interrupt.")
     except Exception as e:
-        print(e)
+        logger.exception(e)
     finally:
         print()
         """ Dump the dataset to local. """
         utils.dump_json(dataset, dataset_path)
+        with open("assets/features.txt", "w") as f:
+            for word in keywords:
+                f.write(word + "\n")

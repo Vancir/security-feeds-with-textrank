@@ -84,9 +84,7 @@ def today(output):
     logger.info(f"Get {len(unread_feeds)} unread feeds.")
 
     with open("assets/features.txt") as f:
-        keywords = [word.strip() for word in f.readlines()]
-        keywords = "|".join(keywords)
-        keyword_pattern = re.compile(keywords)
+        keywords = set([word.strip() for word in f.readlines()])
 
     for unread_feed in unread_feeds:
         try:
@@ -97,7 +95,8 @@ def today(output):
             if not text:
                 continue
 
-            matched_keywords = keyword_pattern.match(text)
+            words = set(text.split())
+            matched_keywords = words & keywords
             if not matched_keywords:
                 continue
             feed_report = [text, _get_text_entities(text, matched_keywords)]
