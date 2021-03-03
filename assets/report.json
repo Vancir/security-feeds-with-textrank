@@ -2,33 +2,7 @@
   [
     "Never blame any day in your life ...Good days give you happiness, bad days give you experience, worst days give you a lesson.",
     {
-      "entities": [
-        [
-          6,
-          11,
-          "KEYWORD"
-        ],
-        [
-          41,
-          45,
-          "KEYWORD"
-        ],
-        [
-          70,
-          74,
-          "KEYWORD"
-        ],
-        [
-          102,
-          106,
-          "KEYWORD"
-        ],
-        [
-          28,
-          32,
-          "KEYWORD"
-        ]
-      ]
+      "entities": []
     }
   ],
   [
@@ -41,18 +15,8 @@
           "KEYWORD"
         ],
         [
-          109,
-          116,
-          "KEYWORD"
-        ],
-        [
-          324,
-          331,
-          "KEYWORD"
-        ],
-        [
-          571,
-          578,
+          58,
+          62,
           "KEYWORD"
         ],
         [
@@ -61,18 +25,8 @@
           "KEYWORD"
         ],
         [
-          310,
-          320,
-          "KEYWORD"
-        ],
-        [
-          557,
-          567,
-          "KEYWORD"
-        ],
-        [
-          21,
-          35,
+          109,
+          116,
           "KEYWORD"
         ],
         [
@@ -81,48 +35,43 @@
           "KEYWORD"
         ],
         [
-          378,
-          386,
+          160,
+          168,
           "KEYWORD"
         ],
         [
-          128,
-          138,
+          169,
+          172,
           "KEYWORD"
         ],
         [
-          229,
-          234,
+          310,
+          320,
           "KEYWORD"
         ],
         [
-          427,
-          432,
-          "KEYWORD"
-        ],
-        [
-          58,
-          62,
-          "KEYWORD"
-        ],
-        [
-          283,
-          287,
-          "KEYWORD"
-        ],
-        [
-          203,
-          210,
-          "KEYWORD"
-        ],
-        [
-          76,
-          84,
+          324,
+          331,
           "KEYWORD"
         ],
         [
           347,
           357,
+          "KEYWORD"
+        ],
+        [
+          363,
+          371,
+          "KEYWORD"
+        ],
+        [
+          557,
+          567,
+          "KEYWORD"
+        ],
+        [
+          571,
+          578,
           "KEYWORD"
         ]
       ]
@@ -133,53 +82,13 @@
     {
       "entities": [
         [
-          54,
-          61,
-          "KEYWORD"
-        ],
-        [
-          252,
-          259,
-          "KEYWORD"
-        ],
-        [
-          499,
-          506,
-          "KEYWORD"
-        ],
-        [
           40,
           50,
           "KEYWORD"
         ],
         [
-          238,
-          248,
-          "KEYWORD"
-        ],
-        [
-          485,
-          495,
-          "KEYWORD"
-        ],
-        [
-          108,
-          116,
-          "KEYWORD"
-        ],
-        [
-          306,
-          314,
-          "KEYWORD"
-        ],
-        [
-          157,
-          162,
-          "KEYWORD"
-        ],
-        [
-          355,
-          360,
+          54,
+          61,
           "KEYWORD"
         ],
         [
@@ -188,8 +97,53 @@
           "KEYWORD"
         ],
         [
+          93,
+          101,
+          "KEYWORD"
+        ],
+        [
+          108,
+          116,
+          "KEYWORD"
+        ],
+        [
+          117,
+          125,
+          "KEYWORD"
+        ],
+        [
+          126,
+          129,
+          "KEYWORD"
+        ],
+        [
+          238,
+          248,
+          "KEYWORD"
+        ],
+        [
+          252,
+          259,
+          "KEYWORD"
+        ],
+        [
           275,
           285,
+          "KEYWORD"
+        ],
+        [
+          306,
+          314,
+          "KEYWORD"
+        ],
+        [
+          485,
+          495,
+          "KEYWORD"
+        ],
+        [
+          499,
+          506,
           "KEYWORD"
         ]
       ]
@@ -200,23 +154,18 @@
     {
       "entities": [
         [
-          61,
-          68,
-          "KEYWORD"
-        ],
-        [
-          308,
-          315,
-          "KEYWORD"
-        ],
-        [
           47,
           57,
           "KEYWORD"
         ],
         [
-          294,
-          304,
+          61,
+          68,
+          "KEYWORD"
+        ],
+        [
+          84,
+          94,
           "KEYWORD"
         ],
         [
@@ -230,8 +179,13 @@
           "KEYWORD"
         ],
         [
-          84,
-          94,
+          294,
+          304,
+          "KEYWORD"
+        ],
+        [
+          308,
+          315,
           "KEYWORD"
         ]
       ]
@@ -241,21 +195,6 @@
     "RT 44CONDo you want to learn how to fuzz professionally using modern fuzzing techniques? Check our new in-depth live online course with @Davkorcz : Published today, it will run on 14-17 June and 13-16 September 2021. https://44con.com/product/applied-source-code-fuzzing-2021/",
     {
       "entities": [
-        [
-          69,
-          76,
-          "KEYWORD"
-        ],
-        [
-          263,
-          270,
-          "KEYWORD"
-        ],
-        [
-          112,
-          116,
-          "KEYWORD"
-        ],
         [
           23,
           28,
@@ -268,17 +207,22 @@
         ],
         [
           69,
-          73,
+          76,
+          "KEYWORD"
+        ],
+        [
+          112,
+          116,
+          "KEYWORD"
+        ],
+        [
+          263,
+          270,
           "KEYWORD"
         ],
         [
           263,
           267,
-          "KEYWORD"
-        ],
-        [
-          117,
-          123,
           "KEYWORD"
         ]
       ]
@@ -289,8 +233,8 @@
     {
       "entities": [
         [
-          100,
-          105,
+          26,
+          32,
           "KEYWORD"
         ],
         [
@@ -304,8 +248,13 @@
           "KEYWORD"
         ],
         [
-          26,
-          32,
+          59,
+          68,
+          "KEYWORD"
+        ],
+        [
+          100,
+          105,
           "KEYWORD"
         ]
       ]
@@ -316,58 +265,28 @@
     {
       "entities": [
         [
-          127,
-          134,
-          "KEYWORD"
-        ],
-        [
-          434,
-          441,
-          "KEYWORD"
-        ],
-        [
-          144,
-          151,
-          "KEYWORD"
-        ],
-        [
-          328,
-          335,
-          "KEYWORD"
-        ],
-        [
-          485,
-          492,
-          "KEYWORD"
-        ],
-        [
           22,
           27,
           "KEYWORD"
         ],
         [
-          74,
-          80,
+          58,
+          62,
           "KEYWORD"
         ],
         [
-          293,
-          299,
+          81,
+          90,
           "KEYWORD"
         ],
         [
-          161,
-          166,
+          98,
+          104,
           "KEYWORD"
         ],
         [
-          456,
-          461,
-          "KEYWORD"
-        ],
-        [
-          215,
-          223,
+          127,
+          134,
           "KEYWORD"
         ],
         [
@@ -376,33 +295,8 @@
           "KEYWORD"
         ],
         [
-          347,
-          355,
-          "KEYWORD"
-        ],
-        [
-          447,
-          455,
-          "KEYWORD"
-        ],
-        [
-          502,
-          510,
-          "KEYWORD"
-        ],
-        [
-          560,
-          568,
-          "KEYWORD"
-        ],
-        [
-          418,
-          426,
-          "KEYWORD"
-        ],
-        [
-          442,
-          446,
+          144,
+          151,
           "KEYWORD"
         ],
         [
@@ -411,8 +305,68 @@
           "KEYWORD"
         ],
         [
+          161,
+          166,
+          "KEYWORD"
+        ],
+        [
+          215,
+          223,
+          "KEYWORD"
+        ],
+        [
+          328,
+          335,
+          "KEYWORD"
+        ],
+        [
           336,
           344,
+          "KEYWORD"
+        ],
+        [
+          347,
+          355,
+          "KEYWORD"
+        ],
+        [
+          356,
+          367,
+          "KEYWORD"
+        ],
+        [
+          372,
+          379,
+          "KEYWORD"
+        ],
+        [
+          418,
+          426,
+          "KEYWORD"
+        ],
+        [
+          434,
+          441,
+          "KEYWORD"
+        ],
+        [
+          442,
+          446,
+          "KEYWORD"
+        ],
+        [
+          447,
+          455,
+          "KEYWORD"
+        ],
+        [
+          456,
+          461,
+          "KEYWORD"
+        ],
+        [
+          485,
+          492,
           "KEYWORD"
         ],
         [
@@ -421,8 +375,18 @@
           "KEYWORD"
         ],
         [
-          300,
-          307,
+          502,
+          510,
+          "KEYWORD"
+        ],
+        [
+          512,
+          519,
+          "KEYWORD"
+        ],
+        [
+          560,
+          568,
           "KEYWORD"
         ]
       ]
@@ -433,18 +397,23 @@
     {
       "entities": [
         [
-          160,
-          168,
+          56,
+          64,
           "KEYWORD"
         ],
         [
-          169,
-          173,
+          65,
+          72,
           "KEYWORD"
         ],
         [
-          219,
-          227,
+          77,
+          82,
+          "KEYWORD"
+        ],
+        [
+          83,
+          91,
           "KEYWORD"
         ],
         [
@@ -453,18 +422,8 @@
           "KEYWORD"
         ],
         [
-          200,
-          205,
-          "KEYWORD"
-        ],
-        [
-          238,
-          244,
-          "KEYWORD"
-        ],
-        [
-          45,
-          52,
+          253,
+          262,
           "KEYWORD"
         ]
       ]
@@ -475,8 +434,38 @@
     {
       "entities": [
         [
-          315,
-          320,
+          67,
+          74,
+          "KEYWORD"
+        ],
+        [
+          75,
+          86,
+          "KEYWORD"
+        ],
+        [
+          89,
+          97,
+          "KEYWORD"
+        ],
+        [
+          98,
+          111,
+          "KEYWORD"
+        ],
+        [
+          112,
+          119,
+          "KEYWORD"
+        ],
+        [
+          181,
+          189,
+          "KEYWORD"
+        ],
+        [
+          217,
+          227,
           "KEYWORD"
         ],
         [
@@ -485,13 +474,8 @@
           "KEYWORD"
         ],
         [
-          165,
-          174,
-          "KEYWORD"
-        ],
-        [
-          181,
-          189,
+          315,
+          320,
           "KEYWORD"
         ],
         [
@@ -507,8 +491,8 @@
     {
       "entities": [
         [
-          91,
-          99,
+          45,
+          49,
           "KEYWORD"
         ],
         [
@@ -522,8 +506,18 @@
           "KEYWORD"
         ],
         [
-          45,
-          49,
+          91,
+          99,
+          "KEYWORD"
+        ],
+        [
+          103,
+          110,
+          "KEYWORD"
+        ],
+        [
+          128,
+          139,
           "KEYWORD"
         ]
       ]
@@ -534,8 +528,18 @@
     {
       "entities": [
         [
-          210,
-          217,
+          25,
+          34,
+          "KEYWORD"
+        ],
+        [
+          35,
+          43,
+          "KEYWORD"
+        ],
+        [
+          66,
+          81,
           "KEYWORD"
         ]
       ]
@@ -546,23 +550,8 @@
     {
       "entities": [
         [
-          275,
-          285,
-          "KEYWORD"
-        ],
-        [
-          191,
-          196,
-          "KEYWORD"
-        ],
-        [
-          209,
-          213,
-          "KEYWORD"
-        ],
-        [
-          172,
-          177,
+          42,
+          49,
           "KEYWORD"
         ],
         [
@@ -571,18 +560,28 @@
           "KEYWORD"
         ],
         [
-          146,
-          153,
+          172,
+          177,
           "KEYWORD"
         ],
         [
-          182,
-          188,
+          209,
+          213,
           "KEYWORD"
         ],
         [
-          42,
-          49,
+          218,
+          235,
+          "KEYWORD"
+        ],
+        [
+          241,
+          245,
+          "KEYWORD"
+        ],
+        [
+          250,
+          253,
           "KEYWORD"
         ]
       ]
@@ -593,8 +592,8 @@
     {
       "entities": [
         [
-          118,
-          128,
+          48,
+          52,
           "KEYWORD"
         ],
         [
@@ -603,18 +602,8 @@
           "KEYWORD"
         ],
         [
-          163,
-          167,
-          "KEYWORD"
-        ],
-        [
-          154,
-          159,
-          "KEYWORD"
-        ],
-        [
-          196,
-          201,
+          101,
+          105,
           "KEYWORD"
         ],
         [
@@ -623,18 +612,8 @@
           "KEYWORD"
         ],
         [
-          86,
-          92,
-          "KEYWORD"
-        ],
-        [
-          48,
-          52,
-          "KEYWORD"
-        ],
-        [
-          101,
-          105,
+          196,
+          201,
           "KEYWORD"
         ]
       ]
@@ -643,60 +622,13 @@
   [
     "It has been an year... I am since an year so close and yet so far...",
     {
-      "entities": [
-        [
-          45,
-          50,
-          "KEYWORD"
-        ]
-      ]
+      "entities": []
     }
   ],
   [
     "RT Xeno KovahI’d like to start lining up beta testers for the OST2 x86-64 assembly class relaunch. If you’re interested, please read the below thread:",
     {
-      "entities": [
-        [
-          25,
-          30,
-          "KEYWORD"
-        ],
-        [
-          41,
-          45,
-          "KEYWORD"
-        ],
-        [
-          46,
-          53,
-          "KEYWORD"
-        ],
-        [
-          128,
-          132,
-          "KEYWORD"
-        ],
-        [
-          145,
-          149,
-          "KEYWORD"
-        ],
-        [
-          83,
-          88,
-          "KEYWORD"
-        ],
-        [
-          31,
-          37,
-          "KEYWORD"
-        ],
-        [
-          74,
-          82,
-          "KEYWORD"
-        ]
-      ]
+      "entities": []
     }
   ],
   [
@@ -704,13 +636,13 @@
     {
       "entities": [
         [
-          102,
-          111,
+          46,
+          51,
           "KEYWORD"
         ],
         [
-          74,
-          82,
+          52,
+          64,
           "KEYWORD"
         ],
         [
@@ -726,88 +658,8 @@
     {
       "entities": [
         [
-          311,
-          318,
-          "KEYWORD"
-        ],
-        [
-          167,
-          172,
-          "KEYWORD"
-        ],
-        [
-          124,
-          132,
-          "KEYWORD"
-        ],
-        [
-          378,
-          383,
-          "KEYWORD"
-        ],
-        [
-          434,
-          439,
-          "KEYWORD"
-        ],
-        [
           460,
           465,
-          "KEYWORD"
-        ],
-        [
-          110,
-          115,
-          "KEYWORD"
-        ],
-        [
-          173,
-          178,
-          "KEYWORD"
-        ],
-        [
-          357,
-          362,
-          "KEYWORD"
-        ],
-        [
-          96,
-          101,
-          "KEYWORD"
-        ],
-        [
-          32,
-          36,
-          "KEYWORD"
-        ],
-        [
-          367,
-          371,
-          "KEYWORD"
-        ],
-        [
-          392,
-          397,
-          "KEYWORD"
-        ],
-        [
-          149,
-          158,
-          "KEYWORD"
-        ],
-        [
-          208,
-          217,
-          "KEYWORD"
-        ],
-        [
-          336,
-          341,
-          "KEYWORD"
-        ],
-        [
-          82,
-          89,
           "KEYWORD"
         ]
       ]
@@ -818,13 +670,23 @@
     {
       "entities": [
         [
-          42,
-          50,
+          25,
+          29,
           "KEYWORD"
         ],
         [
-          3,
-          9,
+          30,
+          33,
+          "KEYWORD"
+        ],
+        [
+          34,
+          41,
+          "KEYWORD"
+        ],
+        [
+          42,
+          50,
           "KEYWORD"
         ]
       ]
@@ -835,18 +697,8 @@
     {
       "entities": [
         [
-          195,
-          202,
-          "KEYWORD"
-        ],
-        [
-          111,
-          121,
-          "KEYWORD"
-        ],
-        [
-          132,
-          142,
+          88,
+          95,
           "KEYWORD"
         ]
       ]
@@ -855,13 +707,7 @@
   [
     "RT dinosaur",
     {
-      "entities": [
-        [
-          3,
-          11,
-          "KEYWORD"
-        ]
-      ]
+      "entities": []
     }
   ],
   [

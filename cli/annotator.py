@@ -24,7 +24,10 @@ KEY_DOWN_ARROW = "\x1b[B"
 KEY_ENTER = "\n"
 KEY_SPACE = " "
 
-LABELS = {"k": "KEYWORD"}
+LABELS = {
+    "k": "KEYWORD",
+    " ": "KEYWORD",
+}
 
 LABELS_COLOR = {
     "KEYWORD": red,
@@ -230,10 +233,18 @@ def annotator(dataset):
             """ entities: Store (start_index, end_index, word). """
             text = data[0]
             entities = data[1]["entities"]
+            if not entities:
+                continue
+
+            old_keywords = set(text[entity[0] : entity[1]] for entity in entities)
+            for keyword in old_keywords:
+                if keyword in keywords:
+                    keywords.remove(keyword)
+
             """ Show and generate dataset word by word. """
             data[1]["entities"] = user_control(text, entities=entities)
             for entity in data[1]["entities"]:
-                keywords.add(entity[-1])
+                keywords.add(text[entity[0] : entity[1]])
     except KeyboardInterrupt:
         print("Keyboard Interrupt.")
     except Exception as e:
@@ -242,6 +253,7 @@ def annotator(dataset):
         print()
         """ Dump the dataset to local. """
         utils.dump_json(dataset, dataset_path)
+        # TODO: add hit count stats.
         with open("assets/features.txt", "w") as f:
             for word in keywords:
                 f.write(word + "\n")
