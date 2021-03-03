@@ -1,6 +1,7 @@
 import re
 import click
 from loguru import logger
+from bs4 import BeautifulSoup
 from rich.progress import track
 
 import feedparser
@@ -8,7 +9,6 @@ from src import utils
 from src import database
 from src import constants
 from src import settings
-from src.textrank import TextRank
 
 
 @click.group()
@@ -30,6 +30,10 @@ def _construct_feed(entry):
 def _parse_and_store_entries(data):
     unread_feeds = []
     for entry in data["entries"]:
+        # skip reply tweet.
+        if entry["title"].startswith("Re"):
+            continue
+
         feed = _construct_feed(entry)
 
         if not database.check_exists(feed):
@@ -74,25 +78,31 @@ def today(output):
         try:
             user_unread_feed = _get_user_feeds(user)
             unread_feeds += user_unread_feed
-        except Exception as e:
-            # logger.exception(f"failed to get twitter {user} feed from rsshub.")
+        except:
             logger.info(f"Failed to get {user} tweets.")
 
     logger.info(f"Get {len(unread_feeds)} unread feeds.")
 
-    textrank = TextRank()
-    for unread_feed in unread_feeds:
-        text = unread_feed["summary"]
-        textrank.analyze(
-            text,
-            candidate_pos=["NOUN", "PROPN"],
-            window_size=4,
-            lower=False,
-        )
-        keywords = textrank.get_keywords(10)
-        keywords = textrank.filter_keywords(keywords)
+    with open("assets/features.txt") as f:
+        keywords = [word.strip() for word in f.readlines()]
+        keywords = "|".join(keywords)
+        keyword_pattern = re.compile(keywords)
 
-        feed_report = [text, _get_text_entities(text, keywords)]
-        reports.append(feed_report)
+    for unread_feed in unread_feeds:
+        try:
+            text = unread_feed["summary"]
+            text = utils.unescape_quotes(text)
+            soup = BeautifulSoup(text, "html.parser")
+            text = soup.text
+            if not text:
+                continue
+
+            matched_keywords = keyword_pattern.match(text)
+            if not matched_keywords:
+                continue
+            feed_report = [text, _get_text_entities(text, matched_keywords)]
+            reports.append(feed_report)
+        except Exception as e:
+            logger.exception(e)
 
     utils.dump_json(reports, output)

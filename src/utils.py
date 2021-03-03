@@ -49,6 +49,10 @@ def escape_quotes(text):
     return text.replace('"', '""')
 
 
+def unescape_quotes(text):
+    return text.replace('"', '""')
+
+
 def unescape_xml_symbol(text):
     text = text.replace("&lt;", "<")
     text = text.replace("&gt;", ">")

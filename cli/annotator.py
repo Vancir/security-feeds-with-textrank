@@ -50,7 +50,7 @@ KEY_LEFT_ARROW = "\x1b[D"
 KEY_RIGHT_ARROW = "\x1b[C"
 KEY_UP_ARROW = "\x1b[A"
 KEY_DOWN_ARROW = "\x1b[B"
-KEY_ENTER = "\r"
+KEY_ENTER = "\n"
 KEY_SPACE = " "
 
 LABELS = {"k": "KEYWORD"}
@@ -125,9 +125,9 @@ def print_usage():
     _ = readkey()
 
 
-def get_wordlists(desc):
-    wordlists = []
-    """ Get standlone word and strip some punctuation. """
+def get_word_list(desc):
+    word_list = []
+    """ Get standalone word and strip some punctuation. """
     for m in re.finditer(r"\S+", desc):
         start, word = m.start(), m.group()
 
@@ -153,18 +153,18 @@ def get_wordlists(desc):
             word = word[1:]
 
         stop = start + len(word)
-        wordlists.append([start, stop, word])
-    return wordlists
+        word_list.append([start, stop, word])
+    return word_list
 
 
-def user_control(desc, entities=[]):
-    """ wordlists: Store result extracted by regex. """
-    wordlists = get_wordlists(desc)
+def user_control(text, entities=[]):
+    """ word_list: Store result extracted by regex. """
+    word_list = get_word_list(text)
 
     pos = 0
     start_pos = 0
     edit_mode = False
-    stop_pos = len(wordlists) - 1
+    stop_pos = len(word_list) - 1
 
     while pos <= stop_pos:
         """ Flush and clear console output. """
@@ -172,12 +172,12 @@ def user_control(desc, entities=[]):
 
         if not edit_mode:
             # get next word
-            start, stop, _ = wordlists[pos]
+            start, stop, _ = word_list[pos]
         else:
             # reset edit_mode to False
             edit_mode = False
 
-        print_colorful_description(desc, start, stop, entities)
+        print_colorful_description(text, start, stop, entities)
         choice = readkey()
 
         if KEY_LEFT_ARROW == choice and pos != start_pos:
@@ -203,6 +203,7 @@ def user_control(desc, entities=[]):
             edit_mode = True
         elif KEY_ENTER == choice:
             # enter next paragraph
+            print("enter")
             break
         elif "u" == choice:
             # unset current highlight
@@ -236,100 +237,7 @@ def user_control(desc, entities=[]):
     return entities
 
 
-def view_control(desc):
-    """ wordlists: Store result extracted by regex. """
-    wordlists = get_wordlists(desc)
-
-    pos = 0
-    start_pos = 0
-    stop_pos = len(wordlists) - 1
-
-    is_interesting = False
-
-    while pos <= stop_pos:
-        """ Flush and clear console output. """
-        os.system("clear")
-        start, stop, _ = wordlists[pos]
-
-        print_colorful_description(desc, start, stop, [])
-        choice = readkey()
-
-        if KEY_LEFT_ARROW == choice and pos != start_pos:
-            # move to next word
-            pos -= 1
-        elif KEY_RIGHT_ARROW == choice and pos != stop_pos:
-            # move to previous word
-            pos += 1
-        elif KEY_UP_ARROW == choice and pos != start_pos:
-            # enter edit mode.
-            start -= 1
-        elif KEY_DOWN_ARROW == choice and pos != stop_pos:
-            # enter edit mode.
-            stop += 1
-        elif KEY_ENTER == choice:
-            # enter next paragraph
-            is_interesting = True
-            break
-        elif KEY_SPACE == choice:
-            is_interesting = False
-            break
-        elif "q" == choice:
-            raise Exception
-
-    return is_interesting
-
-
-@click.group()
-def annotator():
-    """ NER model dataset annotator utilities. """
-    pass
-
-
-@annotator.command()
-@click.option(
-    "-c",
-    "--corpus",
-    default="assets/ner/corpus.txt",
-    type=click.Path(exists=True),
-    help="path of raw corpus data for training nlp model.",
-)
-def flag(corpus):
-    """ Label text whether if interested. """
-
-    corpus = Path(corpus)
-    """ Read descriptions and shuffle. """
-    with open(corpus) as f:
-        tweets = [line.strip() for line in f.readlines()]
-
-    interesting_tweets_path = corpus.parent / "interesting_tweets.txt"
-    with open(interesting_tweets_path) as f:
-        interesting_tweets = set([line.strip() for line in f.readlines()])
-
-    uninteresting_tweets_path = corpus.parent / "uninteresting_tweets.txt"
-    with open(uninteresting_tweets_path) as f:
-        uninteresting_tweets = set([line.strip() for line in f.readlines()])
-
-    already_processed_tweets = interesting_tweets | uninteresting_tweets
-    unprocessed_tweets = filter(lambda x: x not in already_processed_tweets, tweets)
-
-    custom_tweets = filter(lambda x: "fuzz" in x, unprocessed_tweets)
-    try:
-        """ Iterate until get lines of specified number data. """
-        for tweet in custom_tweets:
-            is_interesting = view_control(tweet)
-
-            write_file_path = (
-                interesting_tweets_path if is_interesting else uninteresting_tweets_path
-            )
-            with open(write_file_path, "a") as f:
-                f.write(tweet + "\n")
-    except KeyboardInterrupt:
-        print("Keyboard Interrupt.")
-    except Exception as e:
-        print(e)
-
-
-@annotator.command()
+@click.command()
 @click.option(
     "-d",
     "--dataset",
@@ -337,28 +245,25 @@ def flag(corpus):
     type=click.Path(exists=True),
     help="dataset(report.json).",
 )
-@click.option("-i", "--index", default=0, type=int, help="Index start to annotation.")
-def start(dataset, index):
+def annotator(dataset):
     """ Fix existed dataset. """
     """ Read dataset. """
-    datas = utils.load_json(dataset)
+    dataset_path = dataset
+    dataset = utils.load_json(dataset)
 
-    start_index = index
     try:
         """ Iterate until get lines of specified number data. """
-        for data in datas[start_index:]:
+        for data in dataset:
             """ entities: Store (start_index, end_index, word). """
-            desc = data[0]
+            text = data[0]
             entities = data[1]["entities"]
             """ Show and generate dataset word by word. """
-            data[1]["entities"] = user_control(desc, entities=entities)
-            index += 1
+            data[1]["entities"] = user_control(text, entities=entities)
     except KeyboardInterrupt:
         print("Keyboard Interrupt.")
     except Exception as e:
         print(e)
     finally:
         print()
-        print(symbol("➜"), white("(index) ="), white(str(index)))
         """ Dump the dataset to local. """
-        utils.dump_json(datas, dataset)
+        utils.dump_json(dataset, dataset_path)
